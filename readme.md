@@ -33,3 +33,7 @@ Which give us a sintax like this:
 ```php
 Load::partial( 'button' );
 ```
+
+From a file located in:
+
+`get_template_directory() . '/partials/button.php'`,
