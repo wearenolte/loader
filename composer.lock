@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "1a5b28896956e134f1bfabd859e93f64",
+    "hash": "b39364f617146094a680deeb9a1b9578",
     "content-hash": "4718cc0589ec0c8aec6da3002bbafc6d",
     "packages": [
         {
@@ -69,24 +68,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
                 "reference": "6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
-=======
-    "hash": "10feacd5e4d0dcc24fc30d4041eeab54",
-    "content-hash": "e9124a7beff556ea63ef7bd44ab58f49",
-    "packages": [],
-    "packages-dev": [
-        {
-            "name": "squizlabs/php_codesniffer",
-            "version": "2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e4fb41d5d0387d556e2c25534d630b3cce90ea67",
-                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67",
->>>>>>> b9323ec1188b10228d1a8614ea30891b0555209b
                 "shasum": ""
             },
             "require": {
@@ -104,11 +85,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
                     "dev-master": "2.x-dev"
-=======
-                    "dev-master": "2.0.x-dev"
->>>>>>> b9323ec1188b10228d1a8614ea30891b0555209b
                 }
             },
             "autoload": {
@@ -154,11 +131,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
             "time": "2016-01-19 23:39:10"
-=======
-            "time": "2015-12-11 00:12:46"
->>>>>>> b9323ec1188b10228d1a8614ea30891b0555209b
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -200,20 +173,13 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-<<<<<<< HEAD
         "moxie-leean/theme-assets": 20,
-=======
->>>>>>> b9323ec1188b10228d1a8614ea30891b0555209b
         "wp-coding-standards/wpcs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-<<<<<<< HEAD
         "php": ">=5.4.0"
-=======
-        "php": ">=5.4"
->>>>>>> b9323ec1188b10228d1a8614ea30891b0555209b
     },
     "platform-dev": []
 }
