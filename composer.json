@@ -1,0 +1,37 @@
+{
+    "name": "leean/loader",
+    "description": "Loader for files in wordpress making things easier instead of using a require",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Crisoforo Gaspar",
+            "email": "github@crisoforo.com"
+        }
+    ],
+    "require": {
+      "php": ">=5.4.0",
+      "moxie-leean/theme-assets": "dev-master"
+    },
+    "require-dev": {
+      "squizlabs/php_codesniffer": "2.*",
+      "wp-coding-standards/wpcs": "dev-master"
+    },
+    "autoload": {
+      "psr-4": {
+        "Leean\\": "src/"
+      }
+    },
+    "scripts": {
+      "setup-code-sniffer": [
+        "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
+        "./vendor/bin/phpcs --config-set default_standard ./codesniffer.ruleset.xml",
+        "./vendor/bin/phpcs --config-set show_progress 0",
+        "./vendor/bin/phpcs --config-set colors 1"
+      ],
+      "post-install-cmd": [ "@setup-code-sniffer" ],
+      "post-update-cmd": [ "@setup-code-sniffer" ],
+      "test": [
+        "phpcs src/*.php src/**/*.php"
+      ]
+    }
+}
