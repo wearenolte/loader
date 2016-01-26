@@ -41,7 +41,7 @@ class Load {
 	private static function loader( $file_name = '', $type = '', $args = [] ) {
 		$files = new FileSystem( $file_name, $type );
 		$path = $files->get_path();
-		$files = null;
+		unset( $files );
 		if ( false === $path ) {
 			return;
 		}
