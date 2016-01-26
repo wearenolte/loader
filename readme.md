@@ -1,4 +1,4 @@
-#Loader
+#Loader [![Build Status](https://travis-ci.org/moxie-leean/loader.svg?branch=master)](https://travis-ci.org/moxie-leean/loader)
 
 > Allows to load files from directories with a more sugared syntax, and
 > allowing the use of params passed to the fils.

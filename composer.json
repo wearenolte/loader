@@ -19,7 +19,10 @@
     "autoload": {
       "psr-4": {
         "Leean\\": "src/"
-      }
+      },
+      "files": [
+        "./src/config.php"
+      ]
     },
     "scripts": {
       "setup-code-sniffer": [
@@ -35,3 +38,4 @@
       ]
     }
 }
+
