@@ -22,7 +22,7 @@ class FileSystem {
 
 	private function apply_filters(){
 		$this->alias = apply_filters( 'loader_alias', [] );
-		$this->directories = apply_filters( 'loader_directories', [] );
+		$this->directories = apply_filters( 'loader_directories', [ _THEME_PATH_ ] );
 	}
 
 	public function get_path() {
