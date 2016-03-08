@@ -1,5 +1,5 @@
 {
-    "name": "leean/loader",
+    "name": "moxie-leean/loader",
     "description": "Loader for files in wordpress making things easier instead of using a require",
     "license": "MIT",
     "authors": [
