@@ -1,4 +1,4 @@
-<?php namespace Leean\Helpers;
+<?php namespace Lean\Helpers;
 
 /**
  * Error class that will add warnings into the PHP but withoth breaking the page.

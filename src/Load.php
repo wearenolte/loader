@@ -1,6 +1,6 @@
-<?php namespace Leean;
+<?php namespace Lean;
 
-use Leean\Helpers\FileSystem;
+use Lean\Helpers\FileSystem;
 
 /**
  * Class that is responsible for handle all the logic behind the loading

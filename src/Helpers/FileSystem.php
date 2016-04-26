@@ -1,4 +1,4 @@
-<?php namespace Leean\Helpers;
+<?php namespace Lean\Helpers;
 
 /**
  * Class that handle all the logic related with file system and search files
