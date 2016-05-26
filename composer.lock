@@ -12,12 +12,12 @@
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/moxie-leean/assets.git",
+                "url": "https://github.com/moxie-lean/assets.git",
                 "reference": "7e0db010cb03b85865a3735367efe5631a58a14c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxie-leean/assets/zipball/7e0db010cb03b85865a3735367efe5631a58a14c",
+                "url": "https://api.github.com/repos/moxie-lean/assets/zipball/7e0db010cb03b85865a3735367efe5631a58a14c",
                 "reference": "7e0db010cb03b85865a3735367efe5631a58a14c",
                 "shasum": ""
             },
