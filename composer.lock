@@ -4,70 +4,22 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1cf52bcec0f3fe7f64915115fb7b557",
-    "content-hash": "bc89ca237d3bc47e0b7ec9dce625e18d",
-    "packages": [
-        {
-            "name": "moxie-lean/assets",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moxie-lean/assets.git",
-                "reference": "7e0db010cb03b85865a3735367efe5631a58a14c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moxie-lean/assets/zipball/7e0db010cb03b85865a3735367efe5631a58a14c",
-                "reference": "7e0db010cb03b85865a3735367efe5631a58a14c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "squizlabs/php_codesniffer": "2.*",
-                "wp-coding-standards/wpcs": "0.9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Lean\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Crisoforo Gaspar Hernandez",
-                    "email": "github@crisoforo.com"
-                }
-            ],
-            "description": "Loader for theme assets and some extra utilities related with loader of the assets.",
-            "homepage": "https://github.com/moxie-leean/assets",
-            "keywords": [
-                "assets",
-                "css",
-                "scripts",
-                "wordpress"
-            ],
-            "time": "2016-04-26 15:18:16"
-        }
-    ],
+    "hash": "3c6af7f205055eea8814f6886266596c",
+    "content-hash": "0ef86976ee841d857fc492a40f0896f6",
+    "packages": [],
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "1bcdf03b068a530ac1962ce671dead356eeba43b"
+                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/1bcdf03b068a530ac1962ce671dead356eeba43b",
-                "reference": "1bcdf03b068a530ac1962ce671dead356eeba43b",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
+                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +84,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-04-03 22:58:34"
+            "time": "2016-09-01 23:53:02"
         },
         {
             "name": "wp-coding-standards/wpcs",
