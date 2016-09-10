@@ -13,6 +13,42 @@ function you gain the follow benefits:
 you can define a `button.php` file that can be used in any part of your website and any time
 you want to change something on the button markup you only change this on one single place (see example)
 
+# Set up.
+
+## Background 
+
+Let's imagine we have a directory of files like this: 
+
+```php
+- header.php
+- footer.php
+- index.php
+- functions.php
+- style.css
+|- partials
+|- |- global
+|- |- |- button.php
+```
+
+And we want to reuse `button.php` in `header.php` and `footer.php`.
+
+1. Download the library via `composer` by typing in your terminal: 
+
+```bash
+composer require moxie-lean/loader
+```
+
+2. Register the directories where to look for the alias, we edit `functions.php`, and 
+we add a new path where to look for:
+
+```php
+add_filter( 'loader_directories', function( $directories ){
+  $directories[] = get_template_directory() . '/partials'
+  return $directories;
+});
+```
+
+
 # Filters
 
 There are a coupple of filters that you can use in order to extend the default functionalitty of the loader.
