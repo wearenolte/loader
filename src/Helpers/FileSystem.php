@@ -73,12 +73,21 @@ class FileSystem {
 	 *
 	 * @since 0.1.0
 	 *
+	 * @throws Exception IF file does not exist and is on Debug mode.
 	 * @return bool | string File path if found false otherwhise.
 	 */
 	public function get_path() {
 		$path = $this->search();
 		if ( false === $path ) {
-			Error::file_not_found( $path );
+			$message = sprintf(
+				'File %s does not exist of type %s',
+				$this->file_name,
+				$this->type
+			);
+			error_log( $message );
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				throw new Exception( $message );
+			}
 		}
 		return $path;
 	}
@@ -105,7 +114,7 @@ class FileSystem {
 				break;
 			}
 		}
-		return $path;
+		return file_exists( $path ) ? $path : false;
 	}
 
 	/**
