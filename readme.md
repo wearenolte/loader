@@ -45,7 +45,7 @@ The function accepts two arguments:
 - `$file`, in the example above `single`. This is the filename wanted to load.
 The extension is optional, in this case we want to load the file `single.php` from
 the `partials` directory, you can create an alias for directories 
-(see alias for more information) to use a different name for that directory.
+([see alias for more information](#register-alias)) to use a different name for that directory.
 
 - `$args`, an associative array with the values that we wanted to pass to the 
 loaded file, the array can have any number of elements as long as it's a 
@@ -123,7 +123,8 @@ if ( empty( $args['title'] || empty( $args['url'] ) ) ) {
 # Filters
 
 There are a coupple of filters that you can use in order to extend the default 
-functionalitty of the loader.
+functionalitty of the loader. You can place all the filters on `functions.php` of 
+your theme or any file of your plugin.
 
 ## Register directories where to look for files.
 
@@ -174,7 +175,7 @@ Load::partials( 'button', $arguments );
 ````
 
 
-## Register alias
+## Register an alias
 
 Alias are used if you want to access a directory in a different name such as if you want
 to use `Load::blocks` instead of `Load::partials` you can rename the directory but to
