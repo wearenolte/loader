@@ -32,11 +32,12 @@ composer require moxie-lean/loader
 // File: index.php
 use Lean\Load;
 
-$params = [
+$args = [
   'title' => get_the_title(),
   'url' => get_the_permalink(),
+  'target' => '_blank'
 ];
-Load::partials( 'single' $params );
+Load::partials( 'single' $args );
 ```
 
 The function accepts two arguments:
@@ -54,7 +55,62 @@ on the loaded file via the `$args` variable and can be used as follows:
 <?php
 // File: partials/single.php
 ?>
-<a href="<?php echo esc_url( $args['url'] ); ?>">
+<a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
+  <?php echo esc_html( $args['title'] ); ?>
+</a>
+```
+
+## Tips.
+
+### Set default values
+
+You can easily set default values to always make sure you have the expected arguments
+on the partial or to have values that migth be optional like: 
+
+```php
+<?php
+// File: partials/single.php
+
+// The following lines creates an array with default values. If those values 
+// are not specified when the file is loaded this values are going to be used instead.
+$defaults = [
+  'url' => '',
+  'title' => '',
+  'target' => '_self',
+]
+$args = wp_parse_args( $args, $defaults );
+?>
+<a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
+  <?php echo esc_html( $args['title'] ); ?>
+</a>
+```
+
+### Don't render if you don't have an expected value.
+
+In some cases you are expecting a required value and if that value is not present
+you don't want to render that specifc component, in those situations is better to 
+avoid the render of the component, in order to do that you can return from the template
+at any point to avoid the following lines to be executed, for example: 
+
+```php
+<?php
+// File: partials/single.php
+
+// The following lines creates an array with default values. If those values 
+// are not specified when the file is loaded this values are going to be used instead.
+$defaults = [
+  'url' => '',
+  'title' => '',
+  'target' => '_self',
+]
+$args = wp_parse_args( $args, $defaults );
+
+// Don't render if the title or url are empty.
+if ( empty( $args['title'] || empty( $args['url'] ) ) ) {
+  return; 
+}
+?>
+<a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
   <?php echo esc_html( $args['title'] ); ?>
 </a>
 ```
