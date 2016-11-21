@@ -16,10 +16,10 @@ you have the follow benefits:
 
 Make sure you have at least the following in order to use this library.
 
-- PHP 5.6+
+- PHP 5.6
 - [composer](https://getcomposer.org/):
 
-# Installation.
+# Installation
 
 ```bash
 composer require moxie-lean/loader
@@ -42,25 +42,28 @@ Load::partials( 'single' $args );
 
 The function accepts two arguments:
 
-- `$file`, in the example above `single` this is the file name wanted to load
-the extension is optional, in this case we want to load the file `single.php` from
-the `partials` directory, you can create alias for directories (see alias for more information)
-to use a different name for that directory.
+- `$file`, in the example above `single`. This is the filename wanted to load.
+The extension is optional, in this case we want to load the file `single.php` from
+the `partials` directory, you can create an alias for directories 
+(see alias for more information) to use a different name for that directory.
 
-- `$args`, An associative array with the values that we wanted to pass to the loaded file, this can
-be any number of elements in the array as long as it's a valid associative array. Those values are available
-on the loaded file via the `$args` variable and can be used as follows:
+- `$args`, an associative array with the values that we wanted to pass to the 
+loaded file, the array can have any number of elements as long as it's a 
+valid associative array. Those values are available on the loaded file via 
+the `$args` variable and can be used as follows:
 
 ```php
-<?php
-// File: partials/single.php
+<?php 
+// File: partials/single.php 
+// All loaded files have an $args variable that is used to store all the params
+// passed from where the Load function was used.
 ?>
 <a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
   <?php echo esc_html( $args['title'] ); ?>
 </a>
 ```
 
-## Tips.
+## Tips
 
 ### Set default values
 
@@ -78,6 +81,7 @@ $defaults = [
   'title' => '',
   'target' => '_self',
 ]
+// Update $args with the initial $args mixed with the $default values.
 $args = wp_parse_args( $args, $defaults );
 ?>
 <a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
@@ -103,6 +107,7 @@ $defaults = [
   'title' => '',
   'target' => '_self',
 ]
+// Update $args with the initial $args mixed with the $default values.
 $args = wp_parse_args( $args, $defaults );
 
 // Don't render if the title or url are empty.
@@ -115,73 +120,87 @@ if ( empty( $args['title'] || empty( $args['url'] ) ) ) {
 </a>
 ```
 
-# Use case 
-
-Let's imagine we have a directory of files like this: 
-
-```php
-- header.php
-- footer.php
-- index.php
-- functions.php
-- style.css
-|- partials
-|- |- global
-|- |- |- button.php
-```
-
-And we want to reuse `button.php` in `header.php` and `footer.php`.
-
-1. Download the library via `composer` by typing in your terminal: 
-
-
-2. Register the directories where to look for the alias, we edit `functions.php`, and 
-we add a new path where to look for:
-
-```php
-add_filter( 'loader_directories', function( $directories ){
-  $directories[] = get_template_directory() . '/partials'
-  return $directories;
-});
-```
-
 # Filters
 
-There are a coupple of filters that you can use in order to extend the default functionalitty of the loader.
+There are a coupple of filters that you can use in order to extend the default 
+functionalitty of the loader.
 
-# Register directories where to look for file.
+## Register directories where to look for files.
+
+By default the loader is going to look in the root of the theme but if you have a 
+structure of files such as: 
+
+```
+index.php
+functions.php
+|- views
+|-|- partials
+|-|-|- single.php
+|-|-|- button.php
+```
+
+To load files from `views` directory you can use:
+
+```php
+<?php 
+use Lean\Load;
+
+$arguments = [];
+Load::views( 'partials/single', $arguments ); 
+Load::views( 'partials/button', $arguments ); 
+?>
+```
+
+Or if you want to avoid typing `partials/` every time you can include a new directory
+into the search path, with the `loader_directories` filter, such as:
 
 ```php
 add_filter( 'loader_directories', function( $directories ){
-  $directories[] = get_template_directory();
+  $directories[] = get_template_directory() . '/views';
   return $directories;
 });
 ```
 
-That will search files on the root directory of your theme.
+Whith this change you now can write something like:
+
+```php
+<?php 
+use Lean\Load;
+
+$arguments = [];
+Load::partials( 'single', $arguments ); 
+Load::partials( 'button', $arguments ); 
+?>
+````
 
 
-# Register alias
+## Register alias
 
-The alias are used to search inside of directories more easily for
-example:  
+Alias are used if you want to access a directory in a different name such as if you want
+to use `Load::blocks` instead of `Load::partials` you can rename the directory but to
+avoid that you can easily just create an alias to call a directory in a different way,
+with the `loader_alias` filter, as you can see in the following example:
 
 ```php
 add_filter('loader_alias', function( $alias ){
-  $alias['partial'] = 'partials';
+  $alias['partials'] = 'blocks';
   return $alias;
 });
 ```
 
+You only need to specify the `key` into the `$alias` variable that you want to
+create an alias and assign to `$alias[ key ]` the value with the alias that you 
+want to create.
+
 Which give us a sintax like this: 
 
 ```php
-Load::partial( 'button' );
+<?php
+use Lean\Load;
+$arguments = [];
+Load::blocks( 'single', $arguments );
+?>
 ```
-
-From a file located in:
-
-`get_template_directory() . '/partials/button.php'`,
 
 # Road Map
 
