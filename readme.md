@@ -1,21 +1,65 @@
 #Loader [![Build Status](https://travis-ci.org/moxie-lean/loader.svg?branch=master)](https://travis-ci.org/moxie-lean/loader)
 
 > Allows to load files from directories with a more sugared syntax, and
-> allowing the use of params passed to the fils.
+> allowing the use of params passed to the file.
 
 # Benefits 
 
-By using the Loader instead of the regular `get_template_part` or any other `wordpress` default
-function you gain the follow benefits: 
+By using the Loader package, instead of the regular `get_template_part` or 
+any other `WordPress` default function to load partials or files between templates
+you have the follow benefits: 
 
 - More clear sintax of what files and from where are loaded.
-- Easy to reuse pieces of code by allowing load files with variables. What this means is that
-you can define a `button.php` file that can be used in any part of your website and any time
-you want to change something on the button markup you only change this on one single place (see example)
+- Allow to send variables between files loaded.
 
-# Set up.
+# Requirements
 
-## Background 
+Make sure you have at least the following in order to use this library.
+
+- PHP 5.6+
+- [composer](https://getcomposer.org/):
+
+# Installation.
+
+```bash
+composer require moxie-lean/loader
+```
+
+# Usage
+
+```php
+<?php
+// File: index.php
+use Lean\Load;
+
+$params = [
+  'title' => get_the_title(),
+  'url' => get_the_permalink(),
+];
+Load::partials( 'single' $params );
+```
+
+The function accepts two arguments:
+
+- `$file`, in the example above `single` this is the file name wanted to load
+the extension is optional, in this case we want to load the file `single.php` from
+the `partials` directory, you can create alias for directories (see alias for more information)
+to use a different name for that directory.
+
+- `$args`, An associative array with the values that we wanted to pass to the loaded file, this can
+be any number of elements in the array as long as it's a valid associative array. Those values are available
+on the loaded file via the `$args` variable and can be used as follows:
+
+```php
+<?php
+// File: partials/single.php
+?>
+<a href="<?php echo esc_url( $args['url'] ); ?>">
+  <?php echo esc_html( $args['title'] ); ?>
+</a>
+```
+
+# Use case 
 
 Let's imagine we have a directory of files like this: 
 
@@ -34,9 +78,6 @@ And we want to reuse `button.php` in `header.php` and `footer.php`.
 
 1. Download the library via `composer` by typing in your terminal: 
 
-```bash
-composer require moxie-lean/loader
-```
 
 2. Register the directories where to look for the alias, we edit `functions.php`, and 
 we add a new path where to look for:
@@ -47,7 +88,6 @@ add_filter( 'loader_directories', function( $directories ){
   return $directories;
 });
 ```
-
 
 # Filters
 
