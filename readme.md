@@ -45,7 +45,7 @@ The function accepts two arguments:
 - `$file`, in the example above `single`. This is the filename wanted to load.
 The extension is optional, in this case we want to load the file `single.php` from
 the `partials` directory, you can create an alias for directories 
-([see alias for more information](#register-alias)) to use a different name for that directory.
+([see alias for more information](#register-an-alias)) to use a different name for that directory.
 
 - `$args`, an associative array with the values that we wanted to pass to the 
 loaded file, the array can have any number of elements as long as it's a 
