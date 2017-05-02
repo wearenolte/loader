@@ -86,7 +86,7 @@ class FileSystem {
 			);
 			error_log( $message );
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-				throw new Exception( $message );
+				throw new \Exception( $message );
 			}
 		}
 		return $path;
