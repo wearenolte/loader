@@ -73,7 +73,7 @@ class FileSystem {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @throws Exception IF file does not exist and is on Debug mode.
+	 * @throws \Exception IF file does not exist and is on Debug mode.
 	 * @return bool | string File path if found false otherwhise.
 	 */
 	public function get_path() {
