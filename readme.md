@@ -27,6 +27,14 @@ composer require moxie-lean/loader
 
 # Usage
 
+You need to make sure the `autoload.php` file from composer is included so you can use the functions
+from other packages.
+
+```php
+// functions.php
+include_once( get_stylesheet_directory()  . '/vendor/autoload.php' );
+```
+
 ```php
 <?php
 // File: index.php
@@ -37,7 +45,7 @@ $args = [
   'url' => get_the_permalink(),
   'target' => '_blank'
 ];
-Load::partials( 'single' $args );
+Load::partials( 'single', $args );
 ```
 
 The function accepts two arguments:
