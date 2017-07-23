@@ -82,6 +82,8 @@ sets are merged into a single one with `wp_parse_args` to create a single set.
 
 ```php
 <?php 
+use Lean\Load;
+
 $set_1 = [
   'a' => 1,
   'b' => 5,
