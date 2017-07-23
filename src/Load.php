@@ -28,7 +28,7 @@ class Load {
 		$args = [];
 		// The start point is 1 as the 0 is the name of the file to be loadeed.
 		// So we make sure every next set of arguments are merged with the original set of arguments.
-		for( $i = 1; $i < $total; $i++ ) {
+		for ( $i = 1; $i < $total; $i++ ) {
 			$args = wp_parse_args( $arguments[ $i ], $args );
 		}
 		self::loader( $file, $type, $args );
