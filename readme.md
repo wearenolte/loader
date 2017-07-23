@@ -1,4 +1,4 @@
-#Loader [![Build Status](https://travis-ci.org/moxie-lean/loader.svg?branch=master)](https://travis-ci.org/moxie-lean/loader)
+#Loader [![Build Status](https://travis-ci.org/moxie-lean/loader.svg?branch=master)](https://travis-ci.org/moxie-lean/loader)  
 
 > Allows to load files from directories with a more sugared syntax, and
 > allowing the use of params passed to the file.
