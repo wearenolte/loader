@@ -1,4 +1,6 @@
-#Loader [![Build Status](https://travis-ci.org/moxie-lean/loader.svg?branch=master)](https://travis-ci.org/moxie-lean/loader)
+# Loader  
+
+[![Build Status](https://travis-ci.org/moxie-lean/loader.svg?branch=master)](https://travis-ci.org/moxie-lean/loader) 
 
 > Allows to load files from directories with a more sugared syntax, and
 > allowing the use of params passed to the file.
@@ -11,6 +13,8 @@ you have the follow benefits:
 
 - More clear sintax of what files and from where are loaded.
 - Allow to send variables between files loaded.
+- Multiple set of arguments to the partials. 
+- Keep things DRY.
 
 # Requirements
 
@@ -48,17 +52,20 @@ $args = [
 Load::partials( 'single', $args );
 ```
 
-The function accepts two arguments:
+The function accepts at least two arguments:
 
 - `$file`, in the example above `single`. This is the filename wanted to load.
 The extension is optional, in this case we want to load the file `single.php` from
 the `partials` directory, you can create an alias for directories 
 ([see alias for more information](#register-an-alias)) to use a different name for that directory.
 
-- `$args`, an associative array with the values that we wanted to pass to the 
+- `...$args`, an associative array with the values that we wanted to pass to the 
 loaded file, the array can have any number of elements as long as it's a 
 valid associative array. Those values are available on the loaded file via 
 the `$args` variable and can be used as follows:
+
+You can send as many set of arguments as you want, at the end all
+sets are merged into a single one with `wp_parse_args` to create a single set. 
 
 ```php
 <?php 
@@ -69,6 +76,30 @@ the `$args` variable and can be used as follows:
 <a href="<?php echo esc_url( $args['url'] ); ?>" target="<?php echo esc_attr( $args['target'] ); ?>">
   <?php echo esc_html( $args['title'] ); ?>
 </a>
+```
+
+### Multiple set of arguments.
+
+```php
+<?php 
+use Lean\Load;
+
+$set_1 = [
+  'a' => 1,
+  'b' => 5,
+  'c' => 3
+];
+$set_2 = [
+  'a' => 10,
+  'd' => 3
+];
+$set_3 = [
+  'd' => 10,
+  'c' => 2,
+  'r' => 3,
+];
+// You can have as many sets as you want.
+Load::partials( 'single', $set_1, $set_2, $set_3 ) ?>
 ```
 
 ## Tips
