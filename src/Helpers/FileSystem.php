@@ -63,7 +63,7 @@ class FileSystem {
 	 */
 	private function apply_filters() {
 		$this->alias = apply_filters( 'loader_alias', [] );
-		$this->directories = apply_filters( 'loader_directories', [ _THEME_PATH_ ] );
+		$this->directories = apply_filters( 'loader_directories', [ get_stylesheet_directory() ] );
 	}
 
 	/**
