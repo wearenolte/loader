@@ -10,9 +10,7 @@
     <exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
     <exclude name="WordPress.Files.FileName" />
     <exclude name="Generic.Files.LowercasedFilename" />
-    <exclude name="WordPress.Variables.GlobalVariables" />
-    <exclude name="WordPress.VIP.SuperGlobalInputUsage" />
-    <exclude name="WordPress.VIP.RestrictedFunctions" />
-    <exclude name="WordPress.VIP.SlowDBQuery" />
+    <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="WordPress.NamingConventions.ValidHookName" />
   </rule>
 </ruleset>

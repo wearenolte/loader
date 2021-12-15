@@ -50,7 +50,7 @@ class FileSystem {
 	 */
 	public function __construct( $file_name = '', $type = '' ) {
 		$this->file_name = $file_name;
-		$this->type = $type;
+		$this->type      = $type;
 		$this->apply_filters();
 		$this->format();
 	}
@@ -62,7 +62,7 @@ class FileSystem {
 	 * @since 0.1.0
 	 */
 	private function apply_filters() {
-		$this->alias = apply_filters( 'loader_alias', [] );
+		$this->alias       = apply_filters( 'loader_alias', [] );
 		$this->directories = apply_filters( 'loader_directories', [ get_stylesheet_directory() ] );
 	}
 
@@ -84,7 +84,7 @@ class FileSystem {
 				$this->file_name,
 				$this->type
 			);
-			error_log( $message );
+			error_log( $message ); // phpcs:ignore -- Fire the silent error if the file does not exists.
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 				throw new \Exception( $message );
 			}
@@ -101,7 +101,7 @@ class FileSystem {
 	 * @return bool | string FIle path if is found false otherwse
 	 */
 	public function search() {
-		$path = false;
+		$path  = false;
 		$alias = $this->get_alias();
 		foreach ( $this->directories as $directory ) {
 			$path = sprintf(
