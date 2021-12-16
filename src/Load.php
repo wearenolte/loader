@@ -23,9 +23,9 @@ class Load {
 		if ( empty( $arguments ) ) {
 			return;
 		}
-		$file = $arguments[0];
+		$file  = $arguments[0];
 		$total = count( $arguments );
-		$args = [];
+		$args  = [];
 		// The start point is 1 as the 0 is the name of the file to be loadeed.
 		// So we make sure every next set of arguments are merged with the original set of arguments.
 		for ( $i = 1; $i < $total; $i++ ) {
@@ -49,7 +49,7 @@ class Load {
 	 */
 	private static function loader( $file_name = '', $type = '', $args = [] ) {
 		$files = new FileSystem( $file_name, $type );
-		$path = $files->get_path();
+		$path  = $files->get_path();
 		if ( false !== $path ) {
 			include $path;
 		}

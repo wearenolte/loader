@@ -20,7 +20,7 @@ you have the follow benefits:
 
 Make sure you have at least the following in order to use this library.
 
-- PHP 5.6
+- PHP 7.4 or PHP 8.0
 - [composer](https://getcomposer.org/):
 
 # Installation
